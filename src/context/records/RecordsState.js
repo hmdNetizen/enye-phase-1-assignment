@@ -2,13 +2,20 @@ import React, { useReducer } from "react";
 import { recordsContext } from "./RecordsContext";
 import recordsReducer from "./RecordsReducer";
 import axios from "axios";
-import { GET_RECORDS, SHOW_RECORDS_ERROR } from "./../types";
+import {
+  GET_RECORDS,
+  SHOW_RECORDS_ERROR,
+  SET_RECORDS_PER_PAGE,
+} from "./../types";
 
 const RecordsState = (props) => {
   const initialState = {
     records: [],
+    currentRecords: [],
     loading: true,
-    errors: "",
+    error: "",
+    currentPage: 1,
+    recordsPerPage: 10,
   };
 
   const [state, dispatch] = useReducer(recordsReducer, initialState);
@@ -30,10 +37,42 @@ const RecordsState = (props) => {
     }
   };
 
-  const { records, loading } = state;
+  const setRecordsPerPage = () => {
+    const indexOfLastRecords = currentPage * recordsPerPage;
+    const indexOfFirstRecords = indexOfLastRecords - recordsPerPage;
+    const newCurrentRecords = records.slice(
+      indexOfFirstRecords,
+      indexOfLastRecords
+    );
+
+    dispatch({
+      type: SET_RECORDS_PER_PAGE,
+      payload: newCurrentRecords,
+    });
+  };
+
+  const {
+    records,
+    loading,
+    error,
+    currentPage,
+    recordsPerPage,
+    currentRecords,
+  } = state;
 
   return (
-    <recordsContext.Provider value={{ records, loading, getPatientRecords }}>
+    <recordsContext.Provider
+      value={{
+        records,
+        loading,
+        error,
+        currentPage,
+        recordsPerPage,
+        currentRecords,
+        getPatientRecords,
+        setRecordsPerPage,
+      }}
+    >
       {props.children}
     </recordsContext.Provider>
   );
