@@ -1,7 +1,8 @@
 import {
   GET_RECORDS,
   SHOW_RECORDS_ERROR,
-  SET_RECORDS_PER_PAGE,
+  SET_SELECTED_GENDER,
+  FILTER_BY_GENDER,
 } from "./../types";
 const recordsReducer = (state, action) => {
   switch (action.type) {
@@ -19,12 +20,19 @@ const recordsReducer = (state, action) => {
         records: [],
         loading: false,
       };
-    case SET_RECORDS_PER_PAGE:
+    case SET_SELECTED_GENDER:
       return {
         ...state,
-        currentRecords: action.payload,
+        selectedGender: action.payload,
         loading: false,
         error: "",
+      };
+    case FILTER_BY_GENDER:
+      return {
+        // ...state,
+        // filteredGender: state.records.filter(
+        //   (record) => record.Gender === "Male"
+        // ),
       };
     default:
       return state;

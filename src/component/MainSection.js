@@ -3,21 +3,29 @@ import Grid from "@material-ui/core/Grid";
 import GetRecordsTable from "./GetRecordsTable";
 import Pagination from "./Pagination";
 import { recordsContext } from "../context/records/RecordsContext";
+import ListGroup from "./utils/ListGroup";
+import SearchRecords from "./SearchRecords";
 
 const MainSection = () => {
-  const { records } = useContext(recordsContext);
+  // const { records, selectedGender } = useContext(recordsContext);
   const [currentPage, setCurrentPage] = useState(1);
-  const [recordsPerPage, setRecordsPerPage] = useState(20);
+  const [recordsPerPage] = useState(20);
+
   return (
     <Grid container direction="column">
+      <Grid item container>
+        <Grid item>
+          <ListGroup />
+        </Grid>
+        <Grid item>
+          <SearchRecords />
+        </Grid>
+      </Grid>
       <Grid item>
         <GetRecordsTable
           currentPage={currentPage}
           recordsPerPage={recordsPerPage}
-        />
-        <Pagination
-          recordsPerPage={recordsPerPage}
-          totalRecords={records.length}
+          setCurrentPage={setCurrentPage}
         />
       </Grid>
     </Grid>

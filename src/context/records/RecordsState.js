@@ -5,17 +5,19 @@ import axios from "axios";
 import {
   GET_RECORDS,
   SHOW_RECORDS_ERROR,
-  SET_RECORDS_PER_PAGE,
+  SET_SELECTED_GENDER,
+  FILTER_BY_GENDER,
 } from "./../types";
 
 const RecordsState = (props) => {
   const initialState = {
     records: [],
-    currentRecords: [],
     loading: true,
     error: "",
     currentPage: 1,
     recordsPerPage: 10,
+    selectedGender: {},
+    filteredGender: [],
   };
 
   const [state, dispatch] = useReducer(recordsReducer, initialState);
@@ -37,28 +39,20 @@ const RecordsState = (props) => {
     }
   };
 
-  const setRecordsPerPage = () => {
-    const indexOfLastRecords = currentPage * recordsPerPage;
-    const indexOfFirstRecords = indexOfLastRecords - recordsPerPage;
-    const newCurrentRecords = records.slice(
-      indexOfFirstRecords,
-      indexOfLastRecords
-    );
-
+  const setSelectedGender = (gender) => {
     dispatch({
-      type: SET_RECORDS_PER_PAGE,
-      payload: newCurrentRecords,
+      type: SET_SELECTED_GENDER,
+      payload: gender,
     });
   };
 
-  const {
-    records,
-    loading,
-    error,
-    currentPage,
-    recordsPerPage,
-    currentRecords,
-  } = state;
+  const filterByGender = () => {
+    dispatch({
+      type: FILTER_BY_GENDER,
+    });
+  };
+
+  const { records, loading, error, selectedGender, filteredGender } = state;
 
   return (
     <recordsContext.Provider
@@ -66,11 +60,11 @@ const RecordsState = (props) => {
         records,
         loading,
         error,
-        currentPage,
-        recordsPerPage,
-        currentRecords,
+        selectedGender,
+        setSelectedGender,
+        filteredGender,
+        filterByGender,
         getPatientRecords,
-        setRecordsPerPage,
       }}
     >
       {props.children}
