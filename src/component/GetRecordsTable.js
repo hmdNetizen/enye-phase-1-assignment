@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, Fragment } from "react";
+import React, { useContext, useEffect, Fragment, useState } from "react";
 import { recordsContext } from "./../context/records/RecordsContext";
 import Pagination from "./Pagination";
 import { paginate } from "./utils/paginate";
@@ -16,27 +16,68 @@ const tableHeadTitle = [
   "Mac Address",
 ];
 
-const GetRecordsTable = ({ currentPage, recordsPerPage, setCurrentPage }) => {
+const GetRecordsTable = (props) => {
+  const { currentPage, recordsPerPage, setCurrentPage } = props;
   const {
     records,
     getPatientRecords,
     loading,
     error,
     selectedGender,
+    moneyOrderChecked,
+    payPalChecked,
+    checkChecked,
+    creditCardChecked,
+    searchRecords,
   } = useContext(recordsContext);
 
   useEffect(() => {
     getPatientRecords();
   }, []);
 
-  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
-
   const filtered =
-    selectedGender && selectedGender.id !== 1
+    Object.keys(selectedGender).length > 0 && selectedGender.id !== 1
       ? records.filter((record) => record.Gender === selectedGender.type)
       : records;
 
-  const allRecords = paginate(filtered, currentPage, recordsPerPage);
+  const allRecords = paginate(filterSwitch(), currentPage, recordsPerPage);
+
+  const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
+
+  function filterSwitch() {
+    const moneyOrderOption = records.filter((record) =>
+      moneyOrderChecked ? record.PaymentMethod === "money order" : null
+    );
+
+    const payPalOption = records.filter((record) =>
+      payPalChecked ? record.PaymentMethod === "paypal" : null
+    );
+
+    const checkOption = records.filter((record) =>
+      checkChecked ? record.PaymentMethod === "check" : null
+    );
+
+    const ccOption = records.filter((record) =>
+      creditCardChecked ? record.PaymentMethod === "cc" : null
+    );
+
+    if (
+      !moneyOrderChecked &&
+      !payPalChecked &&
+      !checkChecked &&
+      !creditCardChecked
+    ) {
+      return filtered;
+    } else {
+      setCurrentPage(1);
+      const newRecords = moneyOrderOption.concat(
+        payPalOption,
+        checkOption,
+        ccOption
+      );
+      return newRecords;
+    }
+  }
 
   return (
     <Fragment>
@@ -81,7 +122,7 @@ const GetRecordsTable = ({ currentPage, recordsPerPage, setCurrentPage }) => {
           </table>
           <Pagination
             recordsPerPage={recordsPerPage}
-            totalRecords={filtered.length}
+            totalRecords={filterSwitch().length}
             onPageChange={handlePageChange}
             currentPage={currentPage}
           />

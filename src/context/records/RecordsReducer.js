@@ -2,7 +2,11 @@ import {
   GET_RECORDS,
   SHOW_RECORDS_ERROR,
   SET_SELECTED_GENDER,
-  FILTER_BY_GENDER,
+  SET_MONEY_ORDER_CHECKED,
+  SET_PAYPAL_CHECKED,
+  SET_CREDIT_CARD_CHECKED,
+  SET_CHECK_CHECKED,
+  SEARCH_RECORDS,
 } from "./../types";
 const recordsReducer = (state, action) => {
   switch (action.type) {
@@ -27,12 +31,37 @@ const recordsReducer = (state, action) => {
         loading: false,
         error: "",
       };
-    case FILTER_BY_GENDER:
+    case SET_MONEY_ORDER_CHECKED:
       return {
-        // ...state,
-        // filteredGender: state.records.filter(
-        //   (record) => record.Gender === "Male"
-        // ),
+        ...state,
+        moneyOrderChecked: !state.moneyOrderChecked,
+      };
+    case SET_PAYPAL_CHECKED:
+      return {
+        ...state,
+        payPalChecked: !state.payPalChecked,
+      };
+    case SET_CREDIT_CARD_CHECKED:
+      return {
+        ...state,
+        creditCardChecked: !state.creditCardChecked,
+      };
+    case SET_CHECK_CHECKED:
+      return {
+        ...state,
+        checkChecked: !state.checkChecked,
+      };
+    case SEARCH_RECORDS:
+      return {
+        ...state,
+        records: state.records.filter((record) => {
+          const regex = new RegExp(`${action.payload}`, "gi");
+          return (
+            record.FirstName.match(regex) ||
+            record.LastName.match(regex) ||
+            record.Email.match(regex)
+          );
+        }),
       };
     default:
       return state;

@@ -1,3 +1,25 @@
+*,
+*::after,
+*::before {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+.form {
+  margin-top: 20em !important;
+  background: red;
+}
+
 table {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;
@@ -25,5 +47,35 @@ tfoot td {
   text-align: left;
   background-color: #4caf50;
   color: white;
+}
+
+.header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 0 3em;
+  background: #f4f4f4;
+}
+
+.header__title {
+  font-size: 2rem;
+}
+
+.section {
+  margin-top: 4em;
+}
+
+.section__title__wrapper {
+  margin-left: 3em;
+}
+
+.section__title {
+  color: #5e2778;
 }
 /*# sourceMappingURL=index.css.map */

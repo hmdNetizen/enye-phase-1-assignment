@@ -9,9 +9,7 @@ const genders = [
 ];
 
 const ListGroup = () => {
-  const { selectedGender, setSelectedGender, filteredGender } = useContext(
-    recordsContext
-  );
+  const { selectedGender, setSelectedGender } = useContext(recordsContext);
   return (
     <ul className="list-group" style={{ width: 250 }}>
       <li className="list-group-item">
@@ -20,11 +18,11 @@ const ListGroup = () => {
       {genders.map((gender) => (
         <li
           key={gender.id}
-          className={
+          className={`${
             selectedGender === gender
               ? "list-group-item active"
               : "list-group-item"
-          }
+          } ${gender.id === 1 && !selectedGender.id}`}
           onClick={() => setSelectedGender(gender)}
           style={{ cursor: "pointer" }}
         >

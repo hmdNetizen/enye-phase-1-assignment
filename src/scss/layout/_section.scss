@@ -1,0 +1,11 @@
+.section {
+  margin-top: 4em;
+
+  &__title__wrapper {
+    margin-left: 3em;
+  }
+
+  &__title {
+    color: $color-primary;
+  }
+}

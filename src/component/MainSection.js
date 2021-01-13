@@ -1,24 +1,35 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
+import Typography from "@material-ui/core/Typography";
 import GetRecordsTable from "./GetRecordsTable";
-import Pagination from "./Pagination";
-import { recordsContext } from "../context/records/RecordsContext";
 import ListGroup from "./utils/ListGroup";
 import SearchRecords from "./SearchRecords";
+import SwitchFilter from "./SwitchFilter";
 
 const MainSection = () => {
-  // const { records, selectedGender } = useContext(recordsContext);
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(20);
+  // const [moneyOrderChecked, setMoneyOrderChecked] = useState(false);
+  // const [payPalChecked, setPayPalChecked] = useState(false);
+  // const [checkChecked, setCheckChecked] = useState(false);
+  // const [creditCardChecked, setCreditCardChecked] = useState(false);
 
   return (
-    <Grid container direction="column">
-      <Grid item container>
+    <Grid container direction="column" className="section">
+      <Grid className="section__title__wrapper">
+        <Typography variant="h3" className="section__title">
+          Project
+        </Typography>
+      </Grid>
+      <Grid item container justify="center" style={{ marginBottom: "2em" }}>
+        <SearchRecords />
+      </Grid>
+      <Grid item container alignItems="center">
         <Grid item>
           <ListGroup />
         </Grid>
         <Grid item>
-          <SearchRecords />
+          <SwitchFilter />
         </Grid>
       </Grid>
       <Grid item>
