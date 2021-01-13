@@ -1,0 +1,16 @@
+.MuiFormControlLabel-labelPlacementStart {
+  margin-left: 0 !important;
+  margin-right: 7em !important;
+}
+
+.MuiTypography-body1 {
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: $color-primary;
+}
+
+.MuiSwitch-colorPrimary {
+  &.Mui-checked {
+    color: $color-primary !important;
+  }
+}

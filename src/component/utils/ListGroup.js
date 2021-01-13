@@ -11,9 +11,9 @@ const genders = [
 const ListGroup = () => {
   const { selectedGender, setSelectedGender } = useContext(recordsContext);
   return (
-    <ul className="list-group" style={{ width: 250 }}>
+    <ul className="list-group">
       <li className="list-group-item">
-        <h4>Gender</h4>
+        <h4 className="list-group-item__title">Gender</h4>
       </li>
       {genders.map((gender) => (
         <li

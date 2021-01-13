@@ -18,54 +18,52 @@ const SwitchFilter = (props) => {
   } = useContext(recordsContext);
 
   return (
-    <Grid container>
-      <FormGroup row>
-        <FormControlLabel
-          control={
-            <Switch
-              checked={moneyOrderChecked}
-              onChange={setMoneyOrderChecked}
-              color="primary"
-            />
-          }
-          label="Money Order"
-          labelPlacement="start"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={payPalChecked}
-              onChange={setPayPalChecked}
-              color="primary"
-            />
-          }
-          label="PayPal"
-          labelPlacement="start"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={checkChecked}
-              onChange={setCheckChecked}
-              color="primary"
-            />
-          }
-          label="Check"
-          labelPlacement="start"
-        />
-        <FormControlLabel
-          control={
-            <Switch
-              checked={creditCardChecked}
-              onChange={setCreditCardChecked}
-              color="primary"
-            />
-          }
-          label="CC"
-          labelPlacement="start"
-        />
-      </FormGroup>
-    </Grid>
+    <FormGroup row className="switch">
+      <FormControlLabel
+        control={
+          <Switch
+            checked={moneyOrderChecked}
+            onChange={setMoneyOrderChecked}
+            color="primary"
+          />
+        }
+        label="Money Order"
+        labelPlacement="start"
+      />
+      <FormControlLabel
+        control={
+          <Switch
+            checked={payPalChecked}
+            onChange={setPayPalChecked}
+            color="primary"
+          />
+        }
+        label="PayPal"
+        labelPlacement="start"
+      />
+      <FormControlLabel
+        control={
+          <Switch
+            checked={checkChecked}
+            onChange={setCheckChecked}
+            color="primary"
+          />
+        }
+        label="Check"
+        labelPlacement="start"
+      />
+      <FormControlLabel
+        control={
+          <Switch
+            checked={creditCardChecked}
+            onChange={setCreditCardChecked}
+            color="primary"
+          />
+        }
+        label="CC"
+        labelPlacement="start"
+      />
+    </FormGroup>
   );
 };
 

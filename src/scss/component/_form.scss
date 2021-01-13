@@ -1,4 +1,21 @@
-.form {
-  margin-top: 20em !important;
-  background: red;
+.search {
+  margin-top: 2em;
+  margin-bottom: 3em;
+
+  &__form {
+    width: 65em;
+    border: none;
+    border-bottom: 2px solid $color-primary;
+    padding: 0.5em;
+    font-size: 1.2rem;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-size: 1.5rem;
+      color: $color-tertiary;
+    }
+  }
 }

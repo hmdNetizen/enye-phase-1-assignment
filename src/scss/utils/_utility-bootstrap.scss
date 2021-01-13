@@ -1,0 +1,30 @@
+.list-group {
+  width: 25em;
+  margin-right: 10em;
+  text-align: center;
+  &-item {
+    font-size: 1.2rem;
+    &.active {
+      background: $color-tertiary !important;
+      border-color: $color-tertiary !important;
+    }
+
+    &__title {
+      color: $color-primary;
+    }
+  }
+}
+
+.pagination {
+  justify-content: center;
+}
+
+.page-link {
+  color: $color-primary !important;
+}
+
+.page-item.active .page-link {
+  background: $color-primary !important;
+  border-color: $color-tertiary !important;
+  color: #fff !important;
+}

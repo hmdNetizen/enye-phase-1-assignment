@@ -3,28 +3,34 @@ import TextField from "@material-ui/core/TextField";
 import { recordsContext } from "../context/records/RecordsContext";
 
 const SearchRecords = ({ filtered }) => {
-  const { searchRecords } = useContext(recordsContext);
+  const { searchRecords, getPatientRecords } = useContext(recordsContext);
 
   const text = useRef("");
 
   const handleSearch = (e) => {
     if (text.current.value === "") {
-      return filtered();
+      return getPatientRecords();
     } else {
       searchRecords(e.target.value);
     }
   };
   return (
     <form autoComplete="off" className="search">
-      <TextField
-        id="standard-basic"
+      <input
+        type="text"
+        ref={text}
+        onChange={handleSearch}
+        placeholder="Search patient name for records"
+        className="search__form"
+      />
+      {/* <TextField
         ref={text}
         onChange={handleSearch}
         label="Standard"
         placeholder="Search patient name for records"
         style={{ width: 600 }}
         className="search__form"
-      />
+      /> */}
     </form>
   );
 };

@@ -18,13 +18,18 @@ const MainSection = () => {
     <Grid container direction="column" className="section">
       <Grid className="section__title__wrapper">
         <Typography variant="h3" className="section__title">
-          Project
+          Patients' Records
         </Typography>
       </Grid>
       <Grid item container justify="center" style={{ marginBottom: "2em" }}>
         <SearchRecords />
       </Grid>
-      <Grid item container alignItems="center">
+      <Grid
+        item
+        container
+        alignItems="center"
+        className="section__filter__wrapper"
+      >
         <Grid item>
           <ListGroup />
         </Grid>

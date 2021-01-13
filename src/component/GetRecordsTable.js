@@ -88,34 +88,38 @@ const GetRecordsTable = (props) => {
       ) : (
         <Fragment>
           <table className="table">
-            <thead>
-              <tr>
+            <thead className="table__head">
+              <tr className="table__row">
                 {tableHeadTitle.map((title, index) => (
-                  <th key={index}>{title}</th>
+                  <th key={index} className="table__header">
+                    {title}
+                  </th>
                 ))}
               </tr>
             </thead>
-            <tbody>
+            <tbody className="table__body">
               {records.length > 0 &&
                 allRecords.map((record, index) => (
-                  <tr key={index}>
-                    <td>{(index += 1)}</td>
-                    <td>{`${record.FirstName} ${record.LastName}`}</td>
-                    <td>{record.UserName} </td>
-                    <td>{record.Email} </td>
-                    <td>{record.Gender} </td>
-                    <td>{record.CreditCardNumber} </td>
-                    <td>{record.CreditCardType} </td>
-                    <td>{record.PaymentMethod} </td>
-                    <td>{record.PhoneNumber} </td>
-                    <td>{record.MacAddress} </td>
+                  <tr className="table__row" key={index}>
+                    <td className="table__data">{(index += 1)}</td>
+                    <td className="table__data">{`${record.FirstName} ${record.LastName}`}</td>
+                    <td className="table__data">{record.UserName} </td>
+                    <td className="table__data">{record.Email} </td>
+                    <td className="table__data">{record.Gender} </td>
+                    <td className="table__data">{record.CreditCardNumber} </td>
+                    <td className="table__data">{record.CreditCardType} </td>
+                    <td className="table__data">{record.PaymentMethod} </td>
+                    <td className="table__data">{record.PhoneNumber} </td>
+                    <td className="table__data">{record.MacAddress} </td>
                   </tr>
                 ))}
             </tbody>
-            <tfoot>
-              <tr>
+            <tfoot className="table__footer">
+              <tr className="table__row">
                 {tableHeadTitle.map((title, index) => (
-                  <td key={index}>{title}</td>
+                  <td className="table__data" key={index}>
+                    {title}
+                  </td>
                 ))}
               </tr>
             </tfoot>

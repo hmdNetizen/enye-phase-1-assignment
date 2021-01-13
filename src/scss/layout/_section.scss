@@ -3,9 +3,15 @@
 
   &__title__wrapper {
     margin-left: 3em;
+    margin-right: 3em;
   }
 
   &__title {
     color: $color-primary;
+  }
+
+  &__filter__wrapper {
+    padding: 0 3em;
+    margin-bottom: 3em !important;
   }
 }
