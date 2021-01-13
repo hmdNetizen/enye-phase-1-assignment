@@ -1,3 +1,11 @@
+/* 
+    0 - 600px - Phone (extra small)
+    601 - 960px - Tablet portrait (small)
+    961 - 1280px - Tablet Landscape (medium)
+    1281 - 1920px - Laptop screen (large)
+    1921px + - Large screens (Extra Large)
+
+*/
 *,
 *::after,
 *::before {
@@ -26,6 +34,7 @@ html {
   border-bottom: 2px solid #5e2778;
   padding: 0.5em;
   font-size: 1.2rem;
+  margin-top: 1em;
 }
 
 .search__form:focus {
@@ -95,6 +104,13 @@ html {
 }
 
 .header {
+  width: 100%;
+  position: fixed;
+  top: 0;
+  z-index: 99999;
+}
+
+.header__nav {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -108,9 +124,25 @@ html {
   background: #f4f4f4;
 }
 
+.header__logo {
+  width: 15em;
+}
+
+@media (max-width: 600px) {
+  .header__logo {
+    width: 10em;
+  }
+}
+
 .header__title {
   font-size: 2rem;
   color: #5e2778;
+}
+
+@media (max-width: 600px) {
+  .header__title {
+    font-size: 1.5rem;
+  }
 }
 
 .section {

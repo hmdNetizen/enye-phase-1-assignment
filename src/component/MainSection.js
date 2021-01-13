@@ -1,18 +1,36 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import GetRecordsTable from "./GetRecordsTable";
 import ListGroup from "./utils/ListGroup";
 import SearchRecords from "./SearchRecords";
 import SwitchFilter from "./SwitchFilter";
+import { recordsContext } from "../context/records/RecordsContext";
 
 const MainSection = () => {
+  const {
+    moneyOrderChecked,
+    payPalChecked,
+    checkChecked,
+    creditCardChecked,
+    searchRecords,
+  } = useContext(recordsContext);
+
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(20);
-  // const [moneyOrderChecked, setMoneyOrderChecked] = useState(false);
-  // const [payPalChecked, setPayPalChecked] = useState(false);
-  // const [checkChecked, setCheckChecked] = useState(false);
-  // const [creditCardChecked, setCreditCardChecked] = useState(false);
+
+  useEffect(() => {
+    if (
+      moneyOrderChecked ||
+      payPalChecked ||
+      checkChecked ||
+      creditCardChecked
+    ) {
+      setCurrentPage(1);
+      searchRecords("");
+    }
+    //eslint-disable-next-line
+  }, []);
 
   return (
     <Grid container direction="column" className="section">

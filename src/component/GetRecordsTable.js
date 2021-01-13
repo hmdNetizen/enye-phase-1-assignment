@@ -1,7 +1,8 @@
-import React, { useContext, useEffect, Fragment, useState } from "react";
+import React, { useContext, useEffect, Fragment } from "react";
 import { recordsContext } from "./../context/records/RecordsContext";
 import Pagination from "./Pagination";
 import { paginate } from "./utils/paginate";
+import Spinner from "./utils/Spinner";
 
 const tableHeadTitle = [
   "S/N",
@@ -28,11 +29,11 @@ const GetRecordsTable = (props) => {
     payPalChecked,
     checkChecked,
     creditCardChecked,
-    searchRecords,
   } = useContext(recordsContext);
 
   useEffect(() => {
     getPatientRecords();
+    //eslint-disable-next-line
   }, []);
 
   const filtered =
@@ -69,7 +70,6 @@ const GetRecordsTable = (props) => {
     ) {
       return filtered;
     } else {
-      setCurrentPage(1);
       const newRecords = moneyOrderOption.concat(
         payPalOption,
         checkOption,
@@ -82,7 +82,7 @@ const GetRecordsTable = (props) => {
   return (
     <Fragment>
       {loading ? (
-        <h2>Loading</h2>
+        <Spinner />
       ) : error ? (
         <h2>Unknown Server Error</h2>
       ) : (

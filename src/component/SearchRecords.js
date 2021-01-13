@@ -1,5 +1,4 @@
-import React, { useRef, useContext, useState } from "react";
-import TextField from "@material-ui/core/TextField";
+import React, { useRef, useContext } from "react";
 import { recordsContext } from "../context/records/RecordsContext";
 
 const SearchRecords = ({ filtered }) => {
@@ -23,14 +22,6 @@ const SearchRecords = ({ filtered }) => {
         placeholder="Search patient name for records"
         className="search__form"
       />
-      {/* <TextField
-        ref={text}
-        onChange={handleSearch}
-        label="Standard"
-        placeholder="Search patient name for records"
-        style={{ width: 600 }}
-        className="search__form"
-      /> */}
     </form>
   );
 };
