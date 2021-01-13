@@ -32,7 +32,7 @@ const RecordsState = (props) => {
   const getPatientRecords = async () => {
     try {
       const response = await axios.get(
-        "http://api.enye.tech/v1/challenge/records"
+        "https://api.enye.tech/v1/challenge/records"
       );
       dispatch({
         type: GET_RECORDS,

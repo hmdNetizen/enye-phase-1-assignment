@@ -35,7 +35,11 @@ const MainSection = () => {
   return (
     <Grid container direction="column" className="section">
       <Grid className="section__title__wrapper">
-        <Typography variant="h3" className="section__title">
+        <Typography
+          variant="h3"
+          className="section__title"
+          style={{ marginTop: "5em" }}
+        >
           Patients' Records
         </Typography>
       </Grid>

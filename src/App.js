@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import "./scss/index.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./component/Header";
@@ -7,12 +7,12 @@ import MainSection from "./component/MainSection";
 
 function App() {
   return (
-    <React.Fragment>
+    <Fragment>
       <Header />
       <RecordsState>
         <MainSection />
       </RecordsState>
-    </React.Fragment>
+    </Fragment>
   );
 }
 
