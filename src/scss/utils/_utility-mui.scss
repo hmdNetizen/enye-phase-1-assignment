@@ -1,6 +1,19 @@
 .MuiFormControlLabel-labelPlacementStart {
   margin-left: 0 !important;
   margin-right: 7em !important;
+
+  @include match(md) {
+    margin-right: 3em !important;
+  }
+
+  @include match(sm) {
+    margin-top: 2em;
+    margin-right: 2.5em !important;
+  }
+
+  @include match(xs) {
+    margin-right: 1em !important;
+  }
 }
 
 .MuiTypography-body1 {
@@ -13,4 +26,9 @@
   &.Mui-checked {
     color: $color-primary !important;
   }
+}
+
+.MuiFormGroup-root {
+  flex-direction: row !important;
+  justify-content: center;
 }

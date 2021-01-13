@@ -32,6 +32,18 @@ html {
   margin-bottom: 3em;
 }
 
+@media (max-width: 960px) {
+  .search {
+    margin-left: 3em;
+  }
+}
+
+@media (max-width: 600px) {
+  .search {
+    margin-left: 0;
+  }
+}
+
 .search__form {
   width: 65em;
   border: none;
@@ -39,6 +51,24 @@ html {
   padding: 0.5em;
   font-size: 1.2rem;
   margin-top: 1em;
+}
+
+@media (max-width: 960px) {
+  .search__form {
+    width: 35em;
+  }
+}
+
+@media (max-width: 600px) {
+  .search__form {
+    width: 25em;
+  }
+}
+
+@media (max-width: 320px) {
+  .search__form {
+    width: 17em;
+  }
 }
 
 .search__form:focus {
@@ -63,6 +93,21 @@ html {
 .search__form::placeholder {
   font-size: 1.5rem;
   color: #a16bb3;
+}
+
+@media (max-width: 320px) {
+  .search__form::-webkit-input-placeholder {
+    font-size: 1.2rem;
+  }
+  .search__form:-ms-input-placeholder {
+    font-size: 1.2rem;
+  }
+  .search__form::-ms-input-placeholder {
+    font-size: 1.2rem;
+  }
+  .search__form::placeholder {
+    font-size: 1.2rem;
+  }
 }
 
 .table {
@@ -165,10 +210,25 @@ html {
 .section__title__wrapper {
   margin-left: 3em;
   margin-right: 3em;
+  margin-top: 3em;
+}
+
+@media (max-width: 600px) {
+  .section__title__wrapper {
+    margin-left: 1.5em;
+    margin-right: 1.5em;
+  }
 }
 
 .section__title {
   color: #5e2778;
+}
+
+@media (max-width: 600px) {
+  .section__title {
+    font-size: 2rem !important;
+    text-align: center;
+  }
 }
 
 .section__filter__wrapper {
@@ -180,6 +240,20 @@ html {
   width: 25em;
   margin-right: 10em;
   text-align: center;
+}
+
+@media (max-width: 960px) {
+  .list-group {
+    margin-right: 0;
+    width: 30em;
+  }
+}
+
+@media (max-width: 600px) {
+  .list-group {
+    margin-right: 0;
+    width: 20em;
+  }
 }
 
 .list-group-item {
@@ -216,6 +290,25 @@ html {
   margin-right: 7em !important;
 }
 
+@media (max-width: 1280px) {
+  .MuiFormControlLabel-labelPlacementStart {
+    margin-right: 3em !important;
+  }
+}
+
+@media (max-width: 960px) {
+  .MuiFormControlLabel-labelPlacementStart {
+    margin-top: 2em;
+    margin-right: 2.5em !important;
+  }
+}
+
+@media (max-width: 600px) {
+  .MuiFormControlLabel-labelPlacementStart {
+    margin-right: 1em !important;
+  }
+}
+
 .MuiTypography-body1 {
   font-size: 1.2rem !important;
   font-weight: 700 !important;
@@ -224,5 +317,15 @@ html {
 
 .MuiSwitch-colorPrimary.Mui-checked {
   color: #5e2778 !important;
+}
+
+.MuiFormGroup-root {
+  -webkit-box-orient: horizontal !important;
+  -webkit-box-direction: normal !important;
+      -ms-flex-direction: row !important;
+          flex-direction: row !important;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 /*# sourceMappingURL=index.css.map */

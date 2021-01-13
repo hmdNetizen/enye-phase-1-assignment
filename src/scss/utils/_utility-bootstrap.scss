@@ -2,6 +2,17 @@
   width: 25em;
   margin-right: 10em;
   text-align: center;
+
+  @include match(sm) {
+    margin-right: 0;
+    width: 30em;
+  }
+
+  @include match(xs) {
+    margin-right: 0;
+    width: 20em;
+  }
+
   &-item {
     font-size: 1.2rem;
     &.active {

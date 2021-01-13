@@ -5,6 +5,7 @@ import GetRecordsTable from "./GetRecordsTable";
 import ListGroup from "./utils/ListGroup";
 import SearchRecords from "./SearchRecords";
 import SwitchFilter from "./SwitchFilter";
+import useMediaQuery from "@material-ui/core/useMediaQuery";
 import { recordsContext } from "../context/records/RecordsContext";
 
 const MainSection = () => {
@@ -18,6 +19,8 @@ const MainSection = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(20);
+  const matchesSM = useMediaQuery("(max-width: 960px");
+  const matchesXS = useMediaQuery("(max-width: 600px");
 
   useEffect(() => {
     if (
@@ -35,21 +38,23 @@ const MainSection = () => {
   return (
     <Grid container direction="column" className="section">
       <Grid className="section__title__wrapper">
-        <Typography
-          variant="h3"
-          className="section__title"
-          style={{ marginTop: "5em" }}
-        >
+        <Typography variant="h3" className="section__title">
           Patients' Records
         </Typography>
       </Grid>
-      <Grid item container justify="center" style={{ marginBottom: "2em" }}>
+      <Grid
+        item
+        container
+        justify={matchesXS ? "center" : matchesSM ? "flex-start" : "center"}
+        style={{ marginBottom: "2em" }}
+      >
         <SearchRecords />
       </Grid>
       <Grid
         item
         container
-        alignItems="center"
+        direction={matchesSM ? "column" : "row"}
+        alignItems={matchesSM ? "center" : "center"}
         className="section__filter__wrapper"
       >
         <Grid item>
@@ -59,13 +64,13 @@ const MainSection = () => {
           <SwitchFilter />
         </Grid>
       </Grid>
-      <Grid item>
+      {/* <Grid item>
         <GetRecordsTable
           currentPage={currentPage}
           recordsPerPage={recordsPerPage}
           setCurrentPage={setCurrentPage}
         />
-      </Grid>
+      </Grid> */}
     </Grid>
   );
 };

@@ -4,10 +4,21 @@
   &__title__wrapper {
     margin-left: 3em;
     margin-right: 3em;
+    margin-top: 3em;
+
+    @include match(xs) {
+      margin-left: 1.5em;
+      margin-right: 1.5em;
+    }
   }
 
   &__title {
     color: $color-primary;
+
+    @include match(xs) {
+      font-size: 2rem !important;
+      text-align: center;
+    }
   }
 
   &__filter__wrapper {

@@ -2,6 +2,14 @@
   margin-top: 2em;
   margin-bottom: 3em;
 
+  @include match(sm) {
+    margin-left: 3em;
+  }
+
+  @include match(xs) {
+    margin-left: 0;
+  }
+
   &__form {
     width: 65em;
     border: none;
@@ -10,6 +18,18 @@
     font-size: 1.2rem;
     margin-top: 1em;
 
+    @include match(sm) {
+      width: 35em;
+    }
+
+    @include match(xs) {
+      width: 25em;
+    }
+
+    @include match(xxs) {
+      width: 17em;
+    }
+
     &:focus {
       outline: none;
     }
@@ -17,6 +37,10 @@
     &::placeholder {
       font-size: 1.5rem;
       color: $color-tertiary;
+
+      @include match(xxs) {
+        font-size: 1.2rem;
+      }
     }
   }
 }

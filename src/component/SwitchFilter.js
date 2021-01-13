@@ -17,7 +17,7 @@ const SwitchFilter = (props) => {
   } = useContext(recordsContext);
 
   return (
-    <FormGroup row className="switch">
+    <FormGroup className="switch">
       <FormControlLabel
         control={
           <Switch
