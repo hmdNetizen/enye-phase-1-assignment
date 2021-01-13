@@ -64,13 +64,13 @@ const MainSection = () => {
           <SwitchFilter />
         </Grid>
       </Grid>
-      {/* <Grid item>
+      <Grid item style={{ maxWidth: "100%", overflowX: "auto" }}>
         <GetRecordsTable
           currentPage={currentPage}
           recordsPerPage={recordsPerPage}
           setCurrentPage={setCurrentPage}
         />
-      </Grid> */}
+      </Grid>
     </Grid>
   );
 };

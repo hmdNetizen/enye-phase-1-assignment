@@ -84,7 +84,7 @@ const GetRecordsTable = (props) => {
       {loading ? (
         <Spinner />
       ) : error ? (
-        <h2>Unknown Server Error</h2>
+        <h2 className="error">Unknown Server Error</h2>
       ) : (
         <Fragment>
           <table className="table">

@@ -26,3 +26,9 @@
     margin-bottom: 3em !important;
   }
 }
+
+// Error message if unable to fetch data
+.error {
+  color: rgb(175, 33, 33);
+  text-align: center;
+}
