@@ -25,6 +25,7 @@ const GetRecordsTable = (props) => {
     loading,
     error,
     selectedGender,
+    textInput,
     moneyOrderChecked,
     payPalChecked,
     checkChecked,
@@ -41,7 +42,7 @@ const GetRecordsTable = (props) => {
       ? records.filter((record) => record.Gender === selectedGender.type)
       : records;
 
-  const allRecords = paginate(filterSwitch(), currentPage, recordsPerPage);
+  const allRecords = paginate(filterSearch(), currentPage, recordsPerPage);
 
   const handlePageChange = (pageNumber) => setCurrentPage(pageNumber);
 
@@ -76,6 +77,22 @@ const GetRecordsTable = (props) => {
         ccOption
       );
       return newRecords;
+    }
+  }
+
+  function filterSearch() {
+    if (!textInput) {
+      return filterSwitch();
+    } else {
+      const searchedRecords = records.filter((record) => {
+        const regex = new RegExp(`${textInput}`, "gi");
+        return (
+          record.FirstName.match(regex) ||
+          record.LastName.match(regex) ||
+          record.Email.match(regex)
+        );
+      });
+      return searchedRecords;
     }
   }
 
@@ -137,7 +154,7 @@ const GetRecordsTable = (props) => {
           </table>
           <Pagination
             recordsPerPage={recordsPerPage}
-            totalRecords={filterSwitch().length}
+            totalRecords={filterSearch().length}
             onPageChange={handlePageChange}
             currentPage={currentPage}
             setCurrentPage={setCurrentPage}

@@ -27,7 +27,7 @@ const MainSection = () => {
         justify={matchesXS ? "center" : matchesSM ? "flex-start" : "center"}
         style={{ marginBottom: "2em" }}
       >
-        <SearchRecords />
+        <SearchRecords setCurrentPage={setCurrentPage} />
       </Grid>
       <Grid
         item

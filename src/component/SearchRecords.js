@@ -1,23 +1,18 @@
-import React, { useRef, useContext } from "react";
+import React, { useContext } from "react";
 import { recordsContext } from "../context/records/RecordsContext";
 
-const SearchRecords = ({ filtered }) => {
-  const { searchRecords, getPatientRecords } = useContext(recordsContext);
-
-  const text = useRef("");
+const SearchRecords = ({ setCurrentPage }) => {
+  const { searchRecords, textInput } = useContext(recordsContext);
 
   const handleSearch = (e) => {
-    if (text.current.value === "") {
-      return getPatientRecords();
-    } else {
-      searchRecords(e.target.value);
-    }
+    searchRecords(e.target.value);
+    setCurrentPage(1);
   };
   return (
     <form autoComplete="off" className="search">
       <input
         type="text"
-        ref={text}
+        value={textInput}
         onChange={handleSearch}
         placeholder="Search patient name for records"
         className="search__form"

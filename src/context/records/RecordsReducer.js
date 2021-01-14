@@ -54,14 +54,7 @@ const recordsReducer = (state, action) => {
     case SEARCH_RECORDS:
       return {
         ...state,
-        records: state.records.filter((record) => {
-          const regex = new RegExp(`${action.payload}`, "gi");
-          return (
-            record.FirstName.match(regex) ||
-            record.LastName.match(regex) ||
-            record.Email.match(regex)
-          );
-        }),
+        textInput: action.payload,
       };
     default:
       return state;
