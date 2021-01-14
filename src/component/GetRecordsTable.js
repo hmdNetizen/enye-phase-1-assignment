@@ -98,7 +98,7 @@ const GetRecordsTable = (props) => {
               </tr>
             </thead>
             <tbody className="table__body">
-              {records.length > 0 &&
+              {records.length > 0 ? (
                 allRecords.map((record, index) => (
                   <tr className="table__row" key={index}>
                     <td className="table__data">{(index += 1)}</td>
@@ -112,7 +112,18 @@ const GetRecordsTable = (props) => {
                     <td className="table__data">{record.PhoneNumber} </td>
                     <td className="table__data">{record.MacAddress} </td>
                   </tr>
-                ))}
+                ))
+              ) : (
+                <tr className="table__row--error">
+                  <td
+                    className="table__data--error"
+                    colSpan="10"
+                    align="center"
+                  >
+                    Record(s) not found
+                  </td>
+                </tr>
+              )}
             </tbody>
             <tfoot className="table__footer">
               <tr className="table__row">

@@ -1,0 +1,11 @@
+.footer {
+  margin: 5em auto 1em;
+
+  &__text {
+    font-size: 1.5rem;
+
+    @include match(xs) {
+      font-size: 1.25rem;
+    }
+  }
+}

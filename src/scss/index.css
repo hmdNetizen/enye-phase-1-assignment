@@ -138,6 +138,17 @@ html {
   padding: 8px;
 }
 
+.table__data--error {
+  min-width: 100%;
+  color: #af2121;
+  font-weight: bold;
+  margin: 0 auto;
+}
+
+.table__row--error {
+  background: #f8d7da;
+}
+
 .table .table__row:nth-child(even) {
   background: #ebd7f2;
 }
@@ -153,6 +164,20 @@ html {
   text-align: center;
   background-color: #5e2778;
   color: white;
+}
+
+.footer {
+  margin: 5em auto 1em;
+}
+
+.footer__text {
+  font-size: 1.5rem;
+}
+
+@media (max-width: 600px) {
+  .footer__text {
+    font-size: 1.25rem;
+  }
 }
 
 .header {

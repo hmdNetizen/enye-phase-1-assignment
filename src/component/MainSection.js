@@ -6,6 +6,7 @@ import ListGroup from "./utils/ListGroup";
 import SearchRecords from "./SearchRecords";
 import SwitchFilter from "./SwitchFilter";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
+import Footer from "./Footer";
 
 const MainSection = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,6 +49,9 @@ const MainSection = () => {
           recordsPerPage={recordsPerPage}
           setCurrentPage={setCurrentPage}
         />
+      </Grid>
+      <Grid item container>
+        <Footer />
       </Grid>
     </Grid>
   );

@@ -25,6 +25,19 @@
   &__data {
     border: 1px solid #ddd;
     padding: 8px;
+
+    &--error {
+      min-width: 100%;
+      color: $color-error;
+      font-weight: bold;
+      margin: 0 auto;
+    }
+  }
+
+  &__row {
+    &--error {
+      background: #f8d7da;
+    }
   }
 
   & {
