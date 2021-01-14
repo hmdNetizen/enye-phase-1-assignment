@@ -43,6 +43,7 @@ const SwitchFilter = (props) => {
             onChange={() => {
               setPayPalChecked();
               setCurrentPage(1);
+              searchRecords("");
             }}
             color="primary"
           />
@@ -57,6 +58,7 @@ const SwitchFilter = (props) => {
             onChange={() => {
               setCheckChecked();
               setCurrentPage(1);
+              searchRecords("");
             }}
             color="primary"
           />
@@ -71,6 +73,7 @@ const SwitchFilter = (props) => {
             onChange={() => {
               setCreditCardChecked();
               setCurrentPage(1);
+              searchRecords("");
             }}
             color="primary"
           />

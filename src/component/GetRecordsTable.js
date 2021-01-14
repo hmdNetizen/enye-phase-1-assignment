@@ -115,7 +115,7 @@ const GetRecordsTable = (props) => {
               </tr>
             </thead>
             <tbody className="table__body">
-              {records.length > 0 ? (
+              {allRecords.length > 0 ? (
                 allRecords.map((record, index) => (
                   <tr className="table__row" key={index}>
                     <td className="table__data">{(index += 1)}</td>
