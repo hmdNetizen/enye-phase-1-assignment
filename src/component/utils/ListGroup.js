@@ -8,7 +8,7 @@ const genders = [
   { id: 4, type: "Prefer to skip" },
 ];
 
-const ListGroup = () => {
+const ListGroup = ({ setCurrentPage }) => {
   const { selectedGender, setSelectedGender } = useContext(recordsContext);
   return (
     <ul className="list-group">
@@ -23,7 +23,10 @@ const ListGroup = () => {
               ? "list-group-item active"
               : "list-group-item"
           } ${gender.id === 1 && !selectedGender.id}`}
-          onClick={() => setSelectedGender(gender)}
+          onClick={() => {
+            setSelectedGender(gender);
+            setCurrentPage(1);
+          }}
           style={{ cursor: "pointer" }}
         >
           {gender.type}

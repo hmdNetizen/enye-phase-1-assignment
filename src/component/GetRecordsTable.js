@@ -129,6 +129,7 @@ const GetRecordsTable = (props) => {
             totalRecords={filterSwitch().length}
             onPageChange={handlePageChange}
             currentPage={currentPage}
+            setCurrentPage={setCurrentPage}
           />
         </Fragment>
       )}

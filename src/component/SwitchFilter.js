@@ -14,7 +14,10 @@ const SwitchFilter = (props) => {
     setCheckChecked,
     creditCardChecked,
     setCreditCardChecked,
+    searchRecords,
   } = useContext(recordsContext);
+
+  const { setCurrentPage } = props;
 
   return (
     <FormGroup className="switch">
@@ -22,7 +25,11 @@ const SwitchFilter = (props) => {
         control={
           <Switch
             checked={moneyOrderChecked}
-            onChange={setMoneyOrderChecked}
+            onChange={() => {
+              setMoneyOrderChecked();
+              setCurrentPage(1);
+              searchRecords("");
+            }}
             color="primary"
           />
         }
@@ -33,7 +40,10 @@ const SwitchFilter = (props) => {
         control={
           <Switch
             checked={payPalChecked}
-            onChange={setPayPalChecked}
+            onChange={() => {
+              setPayPalChecked();
+              setCurrentPage(1);
+            }}
             color="primary"
           />
         }
@@ -44,7 +54,10 @@ const SwitchFilter = (props) => {
         control={
           <Switch
             checked={checkChecked}
-            onChange={setCheckChecked}
+            onChange={() => {
+              setCheckChecked();
+              setCurrentPage(1);
+            }}
             color="primary"
           />
         }
@@ -55,7 +68,10 @@ const SwitchFilter = (props) => {
         control={
           <Switch
             checked={creditCardChecked}
-            onChange={setCreditCardChecked}
+            onChange={() => {
+              setCreditCardChecked();
+              setCurrentPage(1);
+            }}
             color="primary"
           />
         }

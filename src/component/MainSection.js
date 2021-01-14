@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react";
+import React, { useState } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import GetRecordsTable from "./GetRecordsTable";
@@ -6,34 +6,12 @@ import ListGroup from "./utils/ListGroup";
 import SearchRecords from "./SearchRecords";
 import SwitchFilter from "./SwitchFilter";
 import useMediaQuery from "@material-ui/core/useMediaQuery";
-import { recordsContext } from "../context/records/RecordsContext";
 
 const MainSection = () => {
-  const {
-    moneyOrderChecked,
-    payPalChecked,
-    checkChecked,
-    creditCardChecked,
-    searchRecords,
-  } = useContext(recordsContext);
-
   const [currentPage, setCurrentPage] = useState(1);
   const [recordsPerPage] = useState(20);
   const matchesSM = useMediaQuery("(max-width: 960px");
   const matchesXS = useMediaQuery("(max-width: 600px");
-
-  useEffect(() => {
-    if (
-      moneyOrderChecked ||
-      payPalChecked ||
-      checkChecked ||
-      creditCardChecked
-    ) {
-      setCurrentPage(1);
-      searchRecords("");
-    }
-    //eslint-disable-next-line
-  }, []);
 
   return (
     <Grid container direction="column" className="section">
@@ -58,10 +36,10 @@ const MainSection = () => {
         className="section__filter__wrapper"
       >
         <Grid item>
-          <ListGroup />
+          <ListGroup setCurrentPage={setCurrentPage} />
         </Grid>
         <Grid item>
-          <SwitchFilter />
+          <SwitchFilter setCurrentPage={setCurrentPage} />
         </Grid>
       </Grid>
       <Grid item style={{ maxWidth: "100%", overflowX: "auto" }}>
