@@ -9,7 +9,9 @@ const genders = [
 ];
 
 const ListGroup = ({ setCurrentPage }) => {
-  const { selectedGender, setSelectedGender } = useContext(recordsContext);
+  const { selectedGender, setSelectedGender, searchRecords } = useContext(
+    recordsContext
+  );
   return (
     <ul className="list-group">
       <li className="list-group-item">
@@ -26,6 +28,7 @@ const ListGroup = ({ setCurrentPage }) => {
           onClick={() => {
             setSelectedGender(gender);
             setCurrentPage(1);
+            searchRecords("");
           }}
           style={{ cursor: "pointer" }}
         >

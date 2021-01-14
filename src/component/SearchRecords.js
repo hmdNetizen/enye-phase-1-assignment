@@ -14,7 +14,7 @@ const SearchRecords = ({ setCurrentPage }) => {
         type="text"
         value={textInput}
         onChange={handleSearch}
-        placeholder="Search patient name for records"
+        placeholder="Search patient's Name or Email for records"
         className="search__form"
       />
     </form>
